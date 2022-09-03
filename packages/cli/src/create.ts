@@ -1,24 +1,54 @@
-import { fileURLToPath } from 'url';
 import fse from 'fs-extra';
-import fetch from 'node-fetch';
-import { promisify } from 'util';
-import stream from 'stream';
 import gunzip from 'gunzip-maybe';
+import inquirer from 'inquirer';
+import fetch from 'node-fetch';
+import stream from 'stream';
 import tar from 'tar-fs';
+import { promisify } from 'util';
+
+type Template =
+  | 'library'
+  | 'react-library'
+  | 'express'
+  | 'fastify'
+  | 'react-server'
+  | 'react-serverless'
+  | 'react-spa'
+  | 'monorepo'
+  | 'monorepo-library';
+
+const templates: { name: string; value: Template }[] = [
+  { name: 'Just a library', value: 'library' },
+  { name: 'A react library', value: 'react-library' },
+  { name: 'Express server', value: 'express' },
+  { name: 'Fastify server', value: 'fastify' },
+  { name: 'React and server fullstack app', value: 'react-server' },
+  { name: 'React and serverless fullstack app', value: 'react-serverless' },
+  { name: 'React single page app', value: 'react-spa' },
+  { name: 'Monorepo with Remix app, library and React-native mobile app', value: 'monorepo' },
+  { name: 'Monorepo with muliple libraries to publish', value: 'monorepo-library' },
+];
+
+const reposUrl = 'https://api.github.com/repos/simonboisset/create-esbuild/tarball';
+const pipeline = promisify(stream.pipeline);
 
 const create = async () => {
   try {
-    const pipeline = promisify(stream.pipeline);
-
-    const reposUrl = 'https://api.github.com/repos/simonboisset/create-esbuild/tarball';
-    const templates = {
-      library: 'https://api.github.com/repos/simonboisset/remix-feature-routes/tarball',
-      'react-library': 'fille://../templates/react-library/',
-    };
-
-    type Template = keyof typeof templates;
-    const [template, projectDir] = process.argv as [Template, string];
-    console.log(template, projectDir);
+    const { dir, template } = await inquirer.prompt<{ dir: string; template: Template }>([
+      {
+        type: 'input',
+        name: 'dir',
+        message: 'Where would you like to create your template?',
+        default: '.',
+      },
+      {
+        name: 'template',
+        type: 'list',
+        choices: templates,
+        default: 'library',
+        message: 'Which template do you want?',
+      },
+    ]);
 
     const response = await fetch(reposUrl);
     if (!response.body) {
@@ -43,12 +73,10 @@ const create = async () => {
     } catch (_) {
       throw Error(
         '🚨 There was a problem extracting the file from the provided template.\n\n' +
-          `  Template URL: \`${reposUrl}\`\n` +
-          `  Destination directory: \`${projectDir}\``,
+          `  Template URL: \`${reposUrl}\`\n`,
       );
     }
-    const templatePath = 'library';
-    await fse.copy(`./temp/repo/templates/${templatePath}`, '.');
+    await fse.copy(`./temp/repo/templates/${template}`, dir);
     await fse.rm('temp', { recursive: true });
   } catch (error) {
     console.log(error);
