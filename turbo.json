@@ -8,7 +8,7 @@
     "lint": {
       "outputs": []
     },
-    "create-esbuild": {
+    "esbuild-run": {
       "cache": false
     },
     "dev": {

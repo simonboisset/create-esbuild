@@ -1,5 +1,5 @@
 {
-  "name": "create-esbuild-turbo",
+  "name": "esbuild-run-turbo",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -8,14 +8,14 @@
     "templates/*"
   ],
   "scripts": {
-    "create-esbuild": "turbo run create-esbuild",
+    "esbuild-run": "turbo run esbuild-run",
     "build": "turbo run build ",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "create-esbuild": "*",
+    "esbuild-run": "*",
     "prettier": "latest",
     "turbo": "latest"
   },

@@ -29,7 +29,7 @@ const templates: { name: string; value: Template }[] = [
   { name: 'Monorepo with muliple libraries to publish', value: 'monorepo-library' },
 ];
 
-const reposUrl = 'https://api.github.com/repos/simonboisset/create-esbuild/tarball';
+const reposUrl = 'https://api.github.com/repos/simonboisset/esbuild-run/tarball';
 const pipeline = promisify(stream.pipeline);
 
 const create = async () => {
