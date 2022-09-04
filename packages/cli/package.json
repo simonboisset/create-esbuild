@@ -7,7 +7,13 @@
   ],
   "scripts": {
     "build": "rm -rf dist && node build.js",
-    "esbuild-run": "node ./dist/index.js"
+    "start": "yarn build && node ./dist/index.js",
+    "version:major": "yarn version --new-version major --no-git-tag-version",
+    "version:minor": "yarn version --new-version minor --no-git-tag-version",
+    "version:patch": "yarn version --new-version patch --no-git-tag-version",
+    "publish:major": "yarn publish --access public",
+    "publish:minor": "yarn publish --access public",
+    "publish:patch": "yarn publish --access public"
   },
   "dependencies": {
     "dotenv": "^16.0.2",
