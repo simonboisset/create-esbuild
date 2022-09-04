@@ -12,6 +12,10 @@
     "jsx": "react",
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   }
 }

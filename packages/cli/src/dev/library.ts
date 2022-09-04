@@ -1,7 +1,8 @@
 import esbuild from 'esbuild';
 import { nodeExternalsPlugin } from 'esbuild-node-externals';
-esbuild
-  .build({
+
+const devLibrary = () => {
+  esbuild.build({
     entryPoints: ['./src/index.ts'],
     outfile: 'dist/index.js',
     bundle: true,
@@ -11,5 +12,8 @@ esbuild
     format: 'cjs',
     target: 'node14',
     plugins: [nodeExternalsPlugin()],
-  })
-  .catch(() => process.exit(1));
+    watch: true,
+  });
+};
+
+export default devLibrary;

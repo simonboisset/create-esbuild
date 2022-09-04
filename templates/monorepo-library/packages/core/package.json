@@ -1,0 +1,22 @@
+{
+  "name": "core",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "esbuild-run build library && tsc",
+    "version:major": "yarn version --new-version major --no-git-tag-version",
+    "version:minor": "yarn version --new-version minor --no-git-tag-version",
+    "version:patch": "yarn version --new-version patch --no-git-tag-version",
+    "publish:major": "yarn publish --access public",
+    "publish:minor": "yarn publish --access public",
+    "publish:patch": "yarn publish --access public"
+  },
+  "devDependencies": {
+    "esbuil-run": "*",
+    "typescript": "^4.7.4"
+  }
+}

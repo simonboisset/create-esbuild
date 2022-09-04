@@ -1,12 +1,13 @@
 {
-  "name": "express",
+  "name": "template-express",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "library dev",
-    "build-t": "library"
+    "dev": "esbuild-run dev",
+    "build": "esbuild-run build"
   },
   "devDependencies": {
+    "esbuild-run": "*",
     "typescript": "^4.5.3"
   }
 }

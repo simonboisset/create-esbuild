@@ -1,21 +1,20 @@
 {
-  "name": "create-esbuild-turbo",
+  "name": "esbuild-run-turbo",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*",
-    "templates/*"
+    "packages/*"
   ],
   "scripts": {
-    "create-esbuild": "turbo run create-esbuild",
-    "build": "turbo run build ",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
+    "build": "turbo run build --filter=esbuild-run",
+    "dev": "turbo run dev --filter=esbuild-run",
+    "publish:major": "turbo run publish:major --filter=esbuild-run",
+    "publish:minor": "turbo run publish:minor --filter=esbuild-run",
+    "publish:patch": "turbo run publish:patch --filter=esbuild-run",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "create-esbuild": "*",
+    "esbuild-run": "*",
     "prettier": "latest",
     "turbo": "latest"
   },

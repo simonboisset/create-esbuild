@@ -1,12 +1,35 @@
 {
-  "name": "monorepo-library",
+  "name": "template-monorepo-library",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "library dev",
-    "build-t": "library"
+    "build": "turbo run build",
+    "build:doc": "turbo run build --filter=documentation",
+    "publish:major": "turbo run publish:major --filter=@ts-v/*",
+    "publish:minor": "turbo run publish:minor --filter=@ts-v/*",
+    "publish:patch": "turbo run publish:patch --filter=@ts-v/*",
+    "dev:doc": "turbo run dev --filter=documentation",
+    "dev": "turbo run dev --parallel",
+    "test": "turbo run build --filter=@ts-v/* && jest",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "typescript": "^4.5.3"
-  }
+    "@swc/core": "^1.2.197",
+    "@swc/jest": "^0.2.21",
+    "@types/jest": "^28.1.1",
+    "jest": "^28.1.0",
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "dependencies": {},
+  "packageManager": "yarn@1.22.5"
 }

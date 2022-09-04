@@ -10,6 +10,5 @@ esbuild
     treeShaking: true,
     platform: 'node',
     format: 'cjs',
-    target: 'node16',
   })
   .catch(() => process.exit(1));
