@@ -1,23 +1,12 @@
-import fse from 'fs-extra';
-import gunzip from 'gunzip-maybe';
-import inquirer from 'inquirer';
-import fetch from 'node-fetch';
-import stream from 'stream';
-import tar from 'tar-fs';
-import { promisify } from 'util';
+const fse = require('fs-extra');
+const gunzip = require('gunzip-maybe');
+const inquirer = require('inquirer');
+const fetch = require('node-fetch');
+const stream = require('stream');
+const tar = require('tar-fs');
+const { promisify } = require('util');
 
-type Template =
-  | 'library'
-  | 'react-library'
-  | 'express'
-  | 'fastify'
-  | 'react-server'
-  | 'react-serverless'
-  | 'react-spa'
-  | 'monorepo'
-  | 'monorepo-library';
-
-const templates: { name: string; value: Template }[] = [
+const templates = [
   { name: 'Just a library', value: 'library' },
   { name: 'A react library', value: 'react-library' },
   { name: 'Express server', value: 'express' },
@@ -34,7 +23,7 @@ const pipeline = promisify(stream.pipeline);
 
 const create = async () => {
   try {
-    const { dir, template } = await inquirer.prompt<{ dir: string; template: Template }>([
+    const { dir, template } = await inquirer.prompt([
       {
         type: 'input',
         name: 'dir',
@@ -84,4 +73,4 @@ const create = async () => {
   }
 };
 
-export default create;
+create();

@@ -14,13 +14,13 @@
       "dependsOn": []
     },
     "publish:major": {
-      "dependsOn": ["version:major", "build"]
+      "dependsOn": ["version:major"]
     },
     "publish:minor": {
-      "dependsOn": ["version:minor", "build"]
+      "dependsOn": ["version:minor"]
     },
     "publish:patch": {
-      "dependsOn": ["version:patch", "build"]
+      "dependsOn": ["version:patch"]
     },
     "lint": {
       "outputs": []

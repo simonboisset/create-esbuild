@@ -1,13 +1,13 @@
 {
   "name": "create-esbuild",
   "version": "0.1.1",
-  "bin": "dist/index.js",
+  "bin": "index.js",
+  "main": "index.js",
   "files": [
-    "dist"
+    "index.js"
   ],
   "scripts": {
-    "build": "rm -rf dist && node build.js",
-    "start": "yarn build && node ./dist/index.js",
+    "start": "node ./index.js",
     "version:major": "yarn version --new-version major --no-git-tag-version",
     "version:minor": "yarn version --new-version minor --no-git-tag-version",
     "version:patch": "yarn version --new-version patch --no-git-tag-version",
