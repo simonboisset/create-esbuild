@@ -1,5 +1,5 @@
 import fastify from 'fastify';
-import fastifyStatic from 'fastify-static';
+import fastifyStatic from '@fastify/static';
 import path from 'path';
 
 const app = fastify();
@@ -18,7 +18,7 @@ app.setNotFoundHandler((_, res) => {
 
 const start = async () => {
   try {
-    await app.listen(3000);
+    await app.listen({ port: 3000 });
     app.log.info('Server listing');
   } catch (err) {
     app.log.error(err);

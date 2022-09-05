@@ -2,7 +2,7 @@ const esbuild = require('esbuild');
 const { config } = require('dotenv');
 const fse = require('fs-extra');
 
-const buildClient = async () => {
+const build = async () => {
   config();
   if (fse.existsSync('dist')) {
     await fse.rm('dist', { recursive: true });
@@ -19,9 +19,9 @@ const buildClient = async () => {
     bundle: true,
     minify: true,
     define: clientEnv,
-    loader: { '.png': 'file', '.svg': 'file', '.css': 'file' },
+    loader: { '.png': 'file', '.svg': 'file' },
     outfile: 'dist/index.js',
   });
 };
 
-buildClient();
+build();
