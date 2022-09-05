@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import fse from 'fs-extra';
 import gunzip from 'gunzip-maybe';
 import inquirer from 'inquirer';
