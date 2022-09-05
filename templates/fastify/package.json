@@ -1,5 +1,5 @@
 {
-  "name": "template-react-server",
+  "name": "template-fastify",
   "version": "0.1.0",
   "private": true,
   "scripts": {
