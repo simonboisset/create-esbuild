@@ -1,6 +1,6 @@
 {
   "name": "create-esbuild",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "bin": "index.js",
   "main": "index.js",
   "files": [
