@@ -30,3 +30,5 @@ yarn-error.log*
 
 # turbo
 .turbo
+
+templates/**/yarn.lock

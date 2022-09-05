@@ -1,15 +1,16 @@
-import React, { FC } from 'react';
+import React from 'react';
+import './App.css';
 import { useHMR } from './dev';
-import Logo from './Logo';
+import logo from './logo.svg';
 
-const App: FC = () => {
+function App() {
   useHMR();
   return (
     <div className='App'>
       <header className='App-header'>
-        <Logo />
+        <img src={logo} className='App-logo' alt='logo' />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>src/App.js</code> and save to reload.
         </p>
         <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
           Learn React
@@ -17,6 +18,6 @@ const App: FC = () => {
       </header>
     </div>
   );
-};
+}
 
 export default App;
