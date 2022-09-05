@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "esbuild-run dev",
-    "build": "esbuild-run build"
+    "dev": "create-esbuild dev",
+    "build": "create-esbuild build"
   },
   "devDependencies": {
-    "esbuild-run": "*",
+    "create-esbuild": "*",
     "typescript": "^4.5.3"
   }
 }

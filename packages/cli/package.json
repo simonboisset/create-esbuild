@@ -1,13 +1,13 @@
 {
-  "name": "esbuild-run",
+  "name": "create-esbuild",
   "version": "0.1.1",
-  "bin": "dist/index.js",
+  "bin": "index.js",
+  "main": "index.js",
   "files": [
-    "dist"
+    "index.js"
   ],
   "scripts": {
-    "build": "rm -rf dist && node build.js",
-    "start": "yarn build && node ./dist/index.js",
+    "start": "node ./index.js",
     "version:major": "yarn version --new-version major --no-git-tag-version",
     "version:minor": "yarn version --new-version minor --no-git-tag-version",
     "version:patch": "yarn version --new-version patch --no-git-tag-version",
@@ -16,32 +16,28 @@
     "publish:patch": "yarn publish --access public"
   },
   "dependencies": {
-    "dotenv": "^16.0.2",
     "esbuild": "^0.15.6",
-    "esbuild-node-externals": "^1.5.0",
     "fs-extra": "^10.1.0",
     "gunzip-maybe": "^1.4.2",
     "inquirer": "^9.1.1",
     "node-fetch": "^3.2.10",
-    "serve-handler": "^6.1.3",
     "tar-fs": "^2.1.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/simonboisset/esbuild-run",
+    "url": "https://github.com/simonboisset/create-esbuild",
     "directory": "packages/cli"
   },
   "bugs": {
-    "url": "https://github.com/simonboisset/esbuild-run/issues"
+    "url": "https://github.com/simonboisset/create-esbuild/issues"
   },
-  "homepage": "https://github.com/simonboisset/esbuild-run",
+  "homepage": "https://github.com/simonboisset/create-esbuild",
   "author": "Simon Boisset <simonboisset.dev@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
     "@types/gunzip-maybe": "^1.4.0",
     "@types/inquirer": "^9.0.1",
-    "@types/serve-handler": "^6.1.1",
     "@types/tar-fs": "^2.0.1"
   }
 }
