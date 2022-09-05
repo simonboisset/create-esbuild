@@ -1,10 +1,10 @@
-const fse = require('fs-extra');
-const gunzip = require('gunzip-maybe');
-const inquirer = require('inquirer');
-const fetch = require('node-fetch');
-const stream = require('stream');
-const tar = require('tar-fs');
-const { promisify } = require('util');
+import fse from 'fs-extra';
+import gunzip from 'gunzip-maybe';
+import inquirer from 'inquirer';
+import fetch from 'node-fetch';
+import stream from 'stream';
+import tar from 'tar-fs';
+import { promisify } from 'util';
 
 const templates = [
   { name: 'Just a library', value: 'library' },
