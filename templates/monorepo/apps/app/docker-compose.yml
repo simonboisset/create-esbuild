@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  cockroachdb:
+    image: prismagraphql/cockroachdb-custom:22.1.0
+    restart: always
+    command: start-single-node --insecure
+    ports:
+      - '26257:26257'

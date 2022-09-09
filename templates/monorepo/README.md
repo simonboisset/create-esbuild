@@ -1,1 +1,1 @@
-# Create esbuild monorepo
+# Template monorepo
