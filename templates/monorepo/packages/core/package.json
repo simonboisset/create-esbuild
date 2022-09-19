@@ -9,6 +9,9 @@
   ],
   "scripts": {
     "build": "rm -rf dist && node ./build.js && tsc",
+    "dev": "run-p dev:*",
+    "dev:build": "node ./build.js -w",
+    "dev:ts": "tsc -w",
     "version:major": "yarn version --new-version major --no-git-tag-version",
     "version:minor": "yarn version --new-version minor --no-git-tag-version",
     "version:patch": "yarn version --new-version patch --no-git-tag-version"
@@ -23,6 +26,7 @@
     "@types/react-dom": "^18.0.5",
     "esbuild": "^0.15.6",
     "esbuild-node-externals": "^1.4.1",
+    "npm-run-all": "^4.1.5",
     "typescript": "^4.7.3"
   },
   "peerDependencies": {

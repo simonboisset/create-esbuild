@@ -9,7 +9,7 @@
       "outputs": []
     },
     "dev": {
-      "dependsOn": ["generate", "^build"],
+      "dependsOn": ["^dev"],
       "cache": false
     },
     "push": {

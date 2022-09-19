@@ -1,5 +1,6 @@
 const esbuild = require('esbuild');
 const { nodeExternalsPlugin } = require('esbuild-node-externals');
+const [mode] = process.argv.slice(2);
 esbuild
   .build({
     entryPoints: ['./src/index.ts'],
@@ -10,6 +11,7 @@ esbuild
     platform: 'node',
     format: 'cjs',
     target: 'node14',
+    watch: mode === '-w',
     plugins: [nodeExternalsPlugin()],
   })
   .catch(() => process.exit(1));
