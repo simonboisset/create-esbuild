@@ -64,7 +64,7 @@ const dev = async () => {
         );
       }
 
-      const path = url?.split('/').pop()?.indexOf('.') ? url : `/index.html`;
+      const path = url?.split('/').pop()?.indexOf('.') > -1 ? url : `/index.html`;
       const proxyReq = request({ hostname: '0.0.0.0', port: 8000, path, method, headers }, (prxRes) => {
         res.writeHead(prxRes.statusCode || 200, prxRes.headers);
         prxRes.pipe(res, { end: true });
